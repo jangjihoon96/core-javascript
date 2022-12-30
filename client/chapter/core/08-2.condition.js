@@ -76,21 +76,21 @@ let whichTruthy = false || '' || [2,3].length || {thisIsFalsy:true};
 //   alert('ㅋ')
 // }
 
-
+// .toLowerCase()
+// .toUpperCase()
 let userName = prompt('아이디를 입력하세요', '');
 
-if(userName === 'Admin'){
+if(userName?.toLowerCase() === 'admin'){
   let pw = prompt('비밀번호를 입력하세요', '');
 
-  if(pw === 'TheMaster'){
+  if(pw?.toLowerCase() === 'themaster'){
     console.log('로그인 됐습니다. 환영합니다.');
   }else if(pw === '' || pw === null){
     console.log('취소됐습니다.');
   }else{
     console.log('비밀번호가 틀렸습니다.');
   }
-
-}else if(userName === '' || userName === null){
+}else if(userName.replace(/\s*/g,'') === '' || userName === null){
   console.log('취소됐습니다.');
 }else{
   console.log('인증되지 않은 사용자 입니다.');
