@@ -87,6 +87,13 @@ const user = {
 console.log(user.totalGrades());
 
 
+
+
+
+
+
+
+
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
 
 // pow(numeric: number, powerCount: number): number;
@@ -105,6 +112,12 @@ console.log(pow(2,53));
 
 
 // repeat(text: string, repeatCount: number): string;
-let repeat; 
+// let repeat; 
 
-// repeat('hello',3) // hellohellohello
+function repeat(a,b){
+  let outputText = a;
+  let repeatOutputText = outputText.repeat(b);
+  return repeatOutputText;
+}
+//repeat('hello',3) // hellohellohello
+console.log(repeat('hello',3));
