@@ -124,6 +124,70 @@ const randomUser = {
 
 
 
+// console.log(Object.values(randomUser));
+/* 
+for(let key of Object.keys(randomUser)){
+  console.log(key);
+}
+for(let values of Object.values(randomUser)){
+  console.log(values);
+}
+ */
+
+
+for(let keyValue of Object.entries(randomUser)){
+  let key = keyValue[0]
+  let value = keyValue[1]
+
+  console.log('L1 : ' ,key);
+
+  if(typeof value === 'object'){
+    for(let keyValue of Object.entries(value)){
+      let key = keyValue[0]
+      let value = keyValue[1]
+
+      console.log('\t L2 : ' ,key);
+    }
+  }
+  
+}
+
+
+
+
+
+
 // Object.entries
 // Object.keys
 // Object.values
+
+
+// console.log(Object.values(randomUser));
+/* 
+for(let key of Object.keys(randomUser)){
+  console.log(key);
+}
+for(let values of Object.values(randomUser)){
+  console.log(values);
+}
+ */
+
+
+for(let keyValue of Object.entries(randomUser)){
+  let key = keyValue[0]
+  let value = keyValue[1]
+
+  console.log('L1 : ' ,key);
+
+  if(typeof value === 'object'){
+    for(let keyValue of Object.entries(value)){
+      let key = keyValue[0]
+      let value = keyValue[1]
+
+      console.log('\t L2 : ' ,key);
+    }
+  }
+  
+}
+
+
