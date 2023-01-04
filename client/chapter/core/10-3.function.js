@@ -97,27 +97,57 @@ console.log(user.totalGrades());
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
 
 // pow(numeric: number, powerCount: number): number;
-let pow = (a,b) => {
-  let output = 1;
-  for(let i = 1; i <= b; i++){
-    output*=a;
-  }
-  return output;
-} 
+// let pow = (a,b) => {
+//   let output = 1;
+//   for(let i = 1; i <= b; i++){
+//     output*=a;
+//   }
+//   return output;
+// } 
 // pow(2,53) // 2**53 for문으로
 // console.log(2**53);
-console.log(pow(2,53));
+// console.log(pow(2,53));
 
+
+// 쌤이 한 방법
+let pow = (numeric, powerCount) => {
+  let result = 1;
+  for(let i =0; i< powerCount; i++){
+    result *= numeric
+  }
+  return result
+}
+
+
+// 쌤이 한 방법2
+let powExpression = (numeric, powerCount) => Array(powerCount).fill(null).reduce(acc => acc * numeric,1);
+
+console.log(powExpression(2,53))
 
 
 
 // repeat(text: string, repeatCount: number): string;
 // let repeat; 
 
-function repeat(a,b){
-  let outputText = a;
-  let repeatOutputText = outputText.repeat(b);
-  return repeatOutputText;
-}
-//repeat('hello',3) // hellohellohello
-console.log(repeat('hello',3));
+// function repeat(a,b){
+//   let outputText = a;
+//   let repeatOutputText = outputText.repeat(b);
+//   return repeatOutputText;
+// }
+// repeat('hello',3) // hellohellohello
+// console.log(repeat('hello',3));
+
+
+// 쌤이 한 방법
+// let repeat = (text, repeatCount) => {
+//   let result = '';
+//   for(let i = 0; i < repeatCount; i++){
+//     result += text;
+//   }
+//   return result;
+// }
+
+// 쌤이 한 방법2
+let repeatExpression = (text, repeatCount) => Array(repeatCount).fill(null).reduce((acc) => acc + text,'')
+
+repeatExpression('hi~',3)
