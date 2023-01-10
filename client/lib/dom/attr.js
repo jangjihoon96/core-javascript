@@ -56,7 +56,7 @@
 
 // 1. get 함수 만들기
 function getAttr(node, prop){
-  if(typeof name === 'string'){
+  if(typeof node === 'string'){
     node = getNode(node)
   }
   return node.getAttribute(prop)
