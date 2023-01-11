@@ -21,6 +21,12 @@ h1{
   pointer-events: none;
 }
 
+.emotion{
+  font-size: 50px;
+  position: absolute;
+  pointer-events: none;
+}
+
 .visual{
   padding: 1.5rem;
   background-color: dodgerblue;

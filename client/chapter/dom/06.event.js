@@ -51,16 +51,75 @@ function handler(){
 const ground = getNode('.ground');
 const ball = getNode('.ball');
 
-ground.addEventListener('mousemove', function(e){
-  // console.log(e.offsetX, e.offsetY)
-  ball.style.transform = `translate(${e.offsetX - ball.offsetWidth / 2}px,${e.offsetY - ball.offsetHeight / 2}px)`
-})
+// ground.addEventListener('mousemove', function(e){
+//   // console.log(e.offsetX, e.offsetY)
+//   ball.style.transform = `translate(${e.offsetX - ball.offsetWidth / 2}px,${e.offsetY - ball.offsetHeight / 2}px)`
+// })
 
 
 
 // second.addEventListener('click', function(){
 //   first.removeEventListener('click',handler);
 // });
+
+
+
+
+
+
+
+
+
+
+
+
+// function debounce(callback, limit = 100) {
+//   let timeout
+//   return function(...args) {
+//       clearTimeout(timeout)
+//       timeout = setTimeout(() => {
+//           callback.apply(this, args)
+//       }, limit)
+//   }
+// }
+
+// function throttle(callback, limit = 100) {
+//   let waiting = false
+//   return function() {
+//       if(!waiting) {
+//           callback.apply(this, arguments)
+//           waiting = true
+//           setTimeout(() => {
+//               waiting = false
+//           }, limit)
+//       }
+//   }
+// }
+
+
+// resize
+// ground.addEventListener('mousemove',debounce((e)=>{
+//   console.log(e.offsetX, e.offsetY);
+
+//   let posX = e.offsetX;
+//   let posY = e.offsetY;
+
+//   const emotion = /* html */`<div class="emotion" style="left:${posX}px;top:${posY}px">😘</div>`  
+
+//   insertLast(ground,emotion);
+  
+// },1000))
+
+
+
+
+
+
+
+
+
+
+
 
 
 
