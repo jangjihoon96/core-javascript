@@ -12,5 +12,6 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "eslint no-unused-vars": "off",
     }
 }

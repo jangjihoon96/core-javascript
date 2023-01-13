@@ -1,5 +1,8 @@
 // class 제어
-function addClass(node,className){
+import { getNode } from './getNode.js';
+import { typeError, syntaxError } from '../error/index.js'
+
+export function addClass(node,className){
   if(typeof node === 'string'){
     node = getNode(node);
   }
@@ -11,7 +14,7 @@ function addClass(node,className){
 
 
 
-function removeClass(node,className){
+export function removeClass(node,className){
   if(typeof node === 'string'){
     node = getNode(node);
   }
@@ -30,7 +33,7 @@ function removeClass(node,className){
 
 
 
-function toggleClass(node,className){
+export function toggleClass(node,className){
   if(typeof node === 'string'){
     node = getNode(node);
   }
@@ -44,7 +47,7 @@ function toggleClass(node,className){
 
 
 // css 스타일 제어
-function getCss(node,prop){
+export function getCss(node,prop){
   if(typeof node === 'string'){
     node = getNode(node);
   }
@@ -56,7 +59,7 @@ function getCss(node,prop){
 
 
 
-function setCss(node, prop, value){
+export function setCss(node, prop, value){
   if(typeof node === 'string'){
     node = getNode(node)
   }
@@ -71,6 +74,6 @@ function setCss(node, prop, value){
 
 
 
-const css = (node, prop, value) => {
+export const css = (node, prop, value) => {
   return !value ? getCss(node,prop) : setCss(node,prop,value);
 }

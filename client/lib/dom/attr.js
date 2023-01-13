@@ -1,3 +1,5 @@
+import { getNode } from './getNode.js';
+
 /* // IIFE 패턴
 
 // const attr = (function(){
@@ -80,7 +82,7 @@ function setAttr(node,prop,value){
 }
 
 // 3. attr 함수 만들기
-function attr(node,prop,value){
+export function attr(node,prop,value){
   if(!value){
     return getAttr(node,prop);
   } else{

@@ -1,4 +1,6 @@
 
+import { getNode, insertLast } from './lib/index.js';
+import { refError } from './lib/error/index.js';
 
 /* eslint no-undef: 'warn' */
 /* eslint no-unused-vars: 'off' */
