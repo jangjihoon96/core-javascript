@@ -1,6 +1,6 @@
 
 import { jujeobData } from './data/data.js';
-import { clearContents, getInputValue, getNode, getRandom, insertLast, isNumericString, showAlert, syntaxError, typeError } from './lib/index.js';
+import { clearContents, copy, getInputValue, getNode, getRandom, insertLast, isNumericString, showAlert, syntaxError, typeError } from './lib/index.js';
 
 
 
@@ -23,12 +23,12 @@ function clickSubmitHandler(e){
   
 
   if(!name){
-    showAlert('.alert','이름을 입력해주세요.',3000);
+    showAlert('.alert-error','이름을 입력해주세요.',3000);
     return
   }
 
   if(isNumericString(name)){
-    showAlert('.alert','제대로된 이름을 입력해주세요.',3000);
+    showAlert('.alert-error','제대로된 이름을 입력해주세요.',3000);
     return
   }
 
@@ -42,13 +42,21 @@ function clickSubmitHandler(e){
 }
 
 
-function mouseClickPasty(e){
-  return resultArea.textContent.execCommand('copy');
+
+
+function clickCopyHandler(){
+  let text = resultArea.textContent;
+  // navigator.clipboard.writeText(text)
+  copy(text).then(()=>{
+    showAlert('.alert-success','클립보드 복사가 완료됐습니다.',2000);
+  }); // 약속구문(promise) 카피가 제대로 완료되었다면 then 뒤에 함수를 실행시켜 주라는 뜻
+  
+  
 }
 
 
 submit.addEventListener('click', clickSubmitHandler);
-resultArea.addEventListener('click', mouseClickPasty);
+resultArea.addEventListener('click', clickCopyHandler);
 
 
 
