@@ -53,11 +53,11 @@ function renderRecordListItem(){
     <tr>
       <td>${++counter}</td>
       <td>${diceValue}</td>
-      <td>${total =+ total + diceValue}</td>
+      <td>${total += total + diceValue}</td>
     </tr>
   `
   insertLast(memo('@tbody'),template);
-  recordListWrapper.scrollTop= recordListWrapper.scrollHeight;
+  recordListWrapper.scrollTop = recordListWrapper.scrollHeight;
 }
 
 
