@@ -14,6 +14,19 @@ import { attr, clearContents, diceAnimation, disableElement, enableElement, getN
 // 4. visible 활성 유틸 함수 만들기
 // 5. toggleState 유틸 함수 만들기 
 
+// [ 레코드 템플릿 뿌리기 ] {#fff}
+// 1. renderRecordListItem 함수 만들기
+// 2. HTML 템플릿 만들기
+// 3. 템플릿 뿌리기 
+
+// [ 초기화 시키기 ] {#fff}
+// 1. clearContent 로 정보 지우기
+// 2. total, count 초기화 
+// 3. 스크롤 밑으로 보내기 
+// 4. 메모이제이션 패턴 
+
+
+
 
 // 배열의 구조 분해 할당
 const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > button');
