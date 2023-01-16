@@ -1,4 +1,4 @@
-import { diceAnimation, disableElement, enableElement, getNode, getNodes, invisibleElement, visibleElement } from "./lib/index.js";
+import { attr, clearContents, diceAnimation, disableElement, enableElement, getNode, getNodes, insertLast, invisibleElement, memo, visibleElement } from "./lib/index.js";
 
 
 // [ 주사위 굴리기 ] {#fff}
@@ -19,6 +19,8 @@ import { diceAnimation, disableElement, enableElement, getNode, getNodes, invisi
 const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > button');
 const recordListWrapper = getNode('.recordListWrapper');
 
+memo('@tbody',() => getNode('.recordListWrapper tbody'));
+
 
 // const rollingDiceButton = getNode('.buttonGroup > button:nth-child(1)');
 // const recordButton = getNode('.buttonGroup > button:nth-child(2)');
@@ -26,8 +28,31 @@ const recordListWrapper = getNode('.recordListWrapper');
 
 
 
-// IIFE
 
+/****** render {#fff} ******/ 
+
+let counter = 0;
+let total = 0;
+function renderRecordListItem(){
+  // let item = recordListWrapper.querySelector('tbody');
+  let diceValue = Number(attr('#cube','data-dice'));
+  let template = /* html */`
+    <tr>
+      <td>${++counter}</td>
+      <td>${diceValue}</td>
+      <td>${total =+ total + diceValue}</td>
+    </tr>
+  `
+  insertLast(memo('@tbody'),template);
+  recordListWrapper.scrollTop= recordListWrapper.scrollHeight;
+}
+
+
+
+
+/****** event {#fff} ******/
+
+// IIFE
 const handleRollingDice = (() => {
   let stopAnimation;
   let isRolling = false;
@@ -51,16 +76,20 @@ const handleRollingDice = (() => {
 
 })()
 
+
 const handleRecord = () => {
   
   visibleElement(recordListWrapper);
 
+  renderRecordListItem();
+
 }
 
 const handleReset = () => {
-
+  counter = 0;
+  total = 0;
   invisibleElement(recordListWrapper);
-  
+  clearContents(memo('@tbody'));
 }
 
 rollingDiceButton.addEventListener('click',handleRollingDice)
