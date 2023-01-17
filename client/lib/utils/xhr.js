@@ -10,7 +10,7 @@
 
 
 
-function xhrData({
+export function xhrData({
   url = '',
   method = 'GET',
   body = null,
@@ -101,29 +101,29 @@ xhrData.delete = (url,onSuccess,onFail) => {
 }
 
 
-xhrData.get(
-  'https://jsonplaceholder.typicode.com/users/1',
-  (result)=>{
-    console.log(result);
-  },
-  (err)=>{
-    console.log(err);
-  }
-)
+// xhrData.get(
+//   'https://jsonplaceholder.typicode.com/users/1',
+//   (result)=>{
+//     console.log(result);
+//   },
+//   (err)=>{
+//     console.log(err);
+//   }
+// )
 
-xhrData.post(
-  'https://jsonplaceholder.typicode.com/users',
-  {
-    "name" : "Ji Hoon",
-    "username" : "hooon"
-  },
-  (result)=>{
-    console.log(result);
-  },
-  (err)=>{
-    console.log(err);
-  }
-)
+// xhrData.post(
+//   'https://jsonplaceholder.typicode.com/users',
+//   {
+//     "name" : "Ji Hoon",
+//     "username" : "hooon"
+//   },
+//   (result)=>{
+//     console.log(result);
+//   },
+//   (err)=>{
+//     console.log(err);
+//   }
+// )
 
 
 
