@@ -25,6 +25,7 @@ export function xhrData({
 
   const xhr = new XMLHttpRequest();
 
+  // 비동기 통신 오픈
   xhr.open(method,url);
 
   // Object.entries(headers).forEach(([key,value])=>{
@@ -60,7 +61,7 @@ export function xhrData({
 
 
 
-// 비동기 통신 오픈
+
 
 
 xhrData.get = (url,onSuccess,onFail) => {
