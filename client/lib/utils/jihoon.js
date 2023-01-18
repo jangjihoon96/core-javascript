@@ -26,7 +26,7 @@ export const jihoon = async (options = {}) => {
     // headers: {...(defaultOptions.headers ?? {}), ...(options.headers ?? {})}
   }
 
-  console.log(restOptions)
+  // console.log(restOptions)
 
   let response = await fetch(url,restOptions)
 
@@ -45,14 +45,14 @@ export const jihoon = async (options = {}) => {
 
 
 jihoon.get = (url,options) => {
-  jihoon({
+  return jihoon({
     url,
     ...options
   })
 }
 
 jihoon.post = (url,body,options) => {
-  jihoon({
+  return jihoon({
     method:'POST',
     url,
     body:JSON.stringify(body),
@@ -61,7 +61,7 @@ jihoon.post = (url,body,options) => {
 }
 
 jihoon.put = (url,body,options) => {
-  jihoon({
+  return jihoon({
     method:'PUT',
     url,
     body:JSON.stringify(body),
@@ -70,7 +70,7 @@ jihoon.put = (url,body,options) => {
 }
 
 jihoon.delete = (url,options) => {
-  jihoon({
+  return jihoon({
     method:'DELETE',
     url,
     ...options

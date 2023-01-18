@@ -1,6 +1,6 @@
 
 
-import { insertLast, xhrData, xhrPromise, jihoon } from "./lib/index.js";
+import { insertLast, xhrData, xhrPromise, jihoon, delayP } from "./lib/index.js";
 
 
 // xhrData 사용해보기 {#fff}
@@ -18,6 +18,16 @@ import { insertLast, xhrData, xhrPromise, jihoon } from "./lib/index.js";
 // )
 
 
+async function render(){
 
+  await delayP(2000);
+  
+  let response = await jihoon.get('https://jsonplaceholder.typicode.com/users/1');
+
+  console.log(response.data);
+}
+
+
+render()
 
 
