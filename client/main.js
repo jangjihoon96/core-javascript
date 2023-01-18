@@ -1,6 +1,6 @@
 
 
-import { insertLast, xhrData } from "./lib/index.js";
+import { insertLast, xhrData, xhrPromise, jihoon } from "./lib/index.js";
 
 
 // xhrData 사용해보기 {#fff}

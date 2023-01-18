@@ -126,7 +126,7 @@ async function delayA(){
 // let result = delayA().then((res)=>{console.log(res)});
 let result = await delayA();
 
-console.log(result);
+// console.log(result);
 
 
 
@@ -160,4 +160,4 @@ async function 라면끓이기(){
 
 }
 
-라면끓이기()
+// 라면끓이기()
