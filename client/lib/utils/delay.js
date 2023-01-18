@@ -97,3 +97,67 @@ export function delayP(options = {}){
 // .catch((err)=>{
 //   console.log(err)
 // })
+
+
+
+
+
+
+
+/******************* async await {#fff} *******************/
+
+// 범쌤 설명
+// async : 일반 함수를 promise를 반환하는 함수로 만든다.
+// await : 1. promise가 반환하는 result를 가져오기.
+//         2. 코드 실행 흐름 제어
+
+// 내가 이해한 것
+// async를 사용하면 : 함수에 new Promise를 만들어서 resolve로 값을 반환할 필요가 없어짐
+// await을 사용하면 : promise에서 반환된 값을 .then()으로 가져올 필요가 없어짐
+
+
+
+async function delayA(){
+  return '완료'  
+}
+
+
+// let result = delayA();
+// let result = delayA().then((res)=>{console.log(res)});
+let result = await delayA();
+
+console.log(result);
+
+
+
+
+async function 라면끓이기(){
+  
+  try{
+
+    await delayP(1500)
+    console.log('물넣기')
+
+    await delayP(1500)
+    console.log('스프넣기')
+
+    await delayP(1500)
+    console.log('면넣기')
+
+    await delayP(1500)
+    console.log('계란넣기')
+
+    // throw new Error('계란 껍질이 들어가버렸다!')
+
+    await delayP(1500)
+    console.log('그릇에담기')
+
+  } catch(err){
+
+    console.log(err)
+
+  }
+
+}
+
+라면끓이기()
