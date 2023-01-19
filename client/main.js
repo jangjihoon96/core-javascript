@@ -1,7 +1,19 @@
 /* global gsap */
 
 
-import { insertLast, xhrData, xhrPromise, jihoon, delayP, getNode, renderUserCard, changeColor, renderSpinner } from "./lib/index.js";
+import { 
+  insertLast, 
+  xhrData, 
+  xhrPromise, 
+  jihoon, 
+  delayP, 
+  getNode as $, 
+  renderUserCard, 
+  changeColor, 
+  renderSpinner, 
+  renderEmptyCard,
+  attr
+} from "./lib/index.js";
 
 
 // xhrData 사용해보기 {#fff}
@@ -44,7 +56,7 @@ import { insertLast, xhrData, xhrPromise, jihoon, delayP, getNode, renderUserCar
 // 유저 카드 생성
 // 생성된 카드로 렌더링
 
-const userCardContainer = getNode('.user-card-inner');
+const userCardContainer = $('.user-card-inner');
 
 async function rendingUserList(){
 
@@ -53,19 +65,19 @@ async function rendingUserList(){
   try{
 
     await delayP(2000);
-    getNode('.loadingSpinner').remove();
-    let response = await jihoon.get('https://jsonplaceholder.typicode.com/users');
+    $('.loadingSpinner').remove();
+    let response = await jihoon.get('http://localhost:3000/users');
     
     let userData = response.data;
   
     userData.forEach(data => renderUserCard(userCardContainer,data));
 
   } catch (err) {
-    console.log(err)
-  }
-  
-  
 
+    // console.log(err);
+    renderEmptyCard(userCardContainer);
+
+  }
   
 
   // console.log(userData);
@@ -86,6 +98,32 @@ async function rendingUserList(){
   
 }
 rendingUserList();
+
+
+
+
+
+
+
+
+
+function deleteHandler(e){
+  let deleteButton = e.target.closest('button');
+  let article = e.target.closest('article')
+  // console.log(deleteButton);
+  if(!deleteButton || !article) return;
+
+  let id = attr(article,'data-index').slice(5)
+  // console.log(id)
+
+  jihoon.delete(`http://localhost:3000/users/${id}`).then(()=>{
+    userCardContainer.innerHTML = '';
+    rendingUserList();
+  })
+
+}
+
+userCardContainer.addEventListener('click',deleteHandler)
 
 
 
