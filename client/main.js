@@ -1,6 +1,7 @@
 
 
 import { 
+  deleteStorage,
   getNode as $, loadStorage, saveStorage 
 } from "./lib/index.js"
 
@@ -20,9 +21,13 @@ function inputHandler(){
 }
 
 
-textField.addEventListener('input', inputHandler)
+function deleteHandler(){
+  deleteStorage('area');
+}
 
 
+textField.addEventListener('input', inputHandler);
+deleteButton.addEventListener('click', deleteHandler);
 
 
 
