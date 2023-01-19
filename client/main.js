@@ -1,8 +1,9 @@
 
 
+import {} from "./lib/index.js"
 
 
-console.log(window)
+
 
 
 
