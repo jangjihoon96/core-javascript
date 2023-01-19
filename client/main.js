@@ -1,6 +1,7 @@
+/* global gsap */
 
 
-import { insertLast, xhrData, xhrPromise, jihoon, delayP } from "./lib/index.js";
+import { insertLast, xhrData, xhrPromise, jihoon, delayP, getNode, renderUserCard, changeColor, renderSpinner } from "./lib/index.js";
 
 
 // xhrData 사용해보기 {#fff}
@@ -17,17 +18,76 @@ import { insertLast, xhrData, xhrPromise, jihoon, delayP } from "./lib/index.js"
 //   }
 // )
 
+// fetch 사용해보기 {#fff}
+// async function render(){
+//   await delayP(2000);
+//   let response = await jihoon.get('https://jsonplaceholder.typicode.com/users/1');
+//   console.log(response.data);
+// }
+// render()
 
-async function render(){
 
-  await delayP(2000);
+
+
+
+
+
+
+
+
+/******************* 유저 리스트 카드 만들기 {#fff} *******************/
+
+
+// rendingUserList 함수
+// ajax get user List
+
+// 유저 카드 생성
+// 생성된 카드로 렌더링
+
+const userCardContainer = getNode('.user-card-inner');
+
+async function rendingUserList(){
+
+  renderSpinner(userCardContainer)
+
+  try{
+
+    await delayP(2000);
+    getNode('.loadingSpinner').remove();
+    let response = await jihoon.get('https://jsonplaceholder.typicode.com/users');
+    
+    let userData = response.data;
   
-  let response = await jihoon.get('https://jsonplaceholder.typicode.com/users/1');
+    userData.forEach(data => renderUserCard(userCardContainer,data));
 
-  console.log(response.data);
+  } catch (err) {
+    console.log(err)
+  }
+  
+  
+
+  
+
+  // console.log(userData);
+
+  // renderUserCard(userCardContainer,response);
+  // insertLast(userCardContainer,createUserCard(userData));
+  
+  
+  // console.log(gsap.utils.toArray('.user-card'));
+  changeColor('.user-card');
+  gsap.to([gsap.utils.toArray('.user-card')],{
+    // rotate:'360deg', 
+    x:0,
+    opacity:1,
+    duration:1.5,
+    stagger: 0.2,
+  })
+  
 }
+rendingUserList();
 
 
-render()
+
 
 
